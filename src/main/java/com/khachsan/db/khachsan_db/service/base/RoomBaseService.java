@@ -102,6 +102,30 @@ public class RoomBaseService {
 	}
 
     	
+    //CRUD - FIND BY Coderoom
+    	
+	public List<Room> findBycoderoom(Long idcoderoom) {
+		
+		String sql = "select * from `Room` WHERE `coderoom` = :idcoderoom";
+		
+	    SqlParameterSource parameters = new MapSqlParameterSource()
+		.addValue("idcoderoom", idcoderoom);
+	    
+	    return jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(Room.class));
+	}
+    	
+    //CRUD - FIND BY Roomid
+    	
+	public List<Room> findByroomid(Long idroomid) {
+		
+		String sql = "select * from `Room` WHERE `roomid` = :idroomid";
+		
+	    SqlParameterSource parameters = new MapSqlParameterSource()
+		.addValue("idroomid", idroomid);
+	    
+	    return jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(Room.class));
+	}
+    	
     //CRUD - FIND BY Roomname
     	
 	public List<Room> findByroomname(Long idroomname) {

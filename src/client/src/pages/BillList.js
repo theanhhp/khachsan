@@ -38,7 +38,6 @@ import DialogDelete from "../components/DialogDelete";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import UserActions from "../redux/actions/UserActions";
 
 // Material UI
 import Button from "@material-ui/core/Button";
@@ -51,19 +50,29 @@ import Button from "@material-ui/core/Button";
 // Table
 import EnhancedTable from "../components/EnhancedTable";
 
+// Custom Actions
+
+
+// START IMPORT ACTIONS
+import BillActions from "../redux/actions/BillActions";
+
+// END IMPORT ACTIONS
+
 /** APIs
 
-* actionsUser.delete
+* actionsBill.delete
 *	@description CRUD ACTION delete
-*	@param ObjectId id - Id
+*	@param ObjectId id - Id bill
 *
-* actionsUser.list
+* actionsBill.list
 *	@description CRUD ACTION list
+*	@returns ARRAY OF bill
 *
 
 **/
 
-class UserList extends Component {
+
+class BillList extends Component {
   // Init component
   constructor(props) {
     super(props);
@@ -74,7 +83,7 @@ class UserList extends Component {
 
   // Load data on start
   componentWillMount() {
-    this.props.actions.loadUserList();
+    this.props.actionsBill.loadBillList();
   }
 
   // Delete data
@@ -87,46 +96,41 @@ class UserList extends Component {
   }
 
   confirmDialogDelete(id) {
-    this.props.actions.deleteUser(this.state.idDelete).then(data => {
-      this.props.actions.loadUserList();
+    this.props.actionsBill.deleteBill(this.state.idDelete).then(data => {
+      this.props.actionsBill.loadBillList();
       this.setState({ openDialogDelete: false, idDelete: null });
     });
   }
 
   // Show content
   render() {
-    const columns = [
+    const columns = [ 
       {
-        id: "username",
-        type: "string",
-        label: "Username"
+        id: "date",
+        type: "date",
+        label: "Date"
+      }, 
+      {
+        id: "employessid",
+        type: "integer",
+        label: "Employessid"
+      }, 
+      {
+        id: "roomid",
+        type: "integer",
+        label: "Roomid"
+      }, 
+      {
+        id: "salarybill",
+        type: "decimal",
+        label: "Salarybill"
       },
-      {
-        id: "name",
-        type: "string",
-        label: "Name"
-      },
-      {
-        id: "surname",
-        type: "string",
-        label: "Surname"
-      },
-      {
-        id: "mail",
-        type: "string",
-        label: "Mail"
-      },
-      {
-        id: "roles",
-        type: "string",
-        label: "Roles"
-      }
     ];
-    const link = "/users/";
+    const link = "/bills/";
 
     return (
       <div>
-        <h1>User List</h1>
+        <h1>Bill List</h1>
 
         <EnhancedTable
           data={this.props.list}
@@ -146,28 +150,24 @@ class UserList extends Component {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell align="right">Mail</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Password</TableCell>
-              <TableCell align="right">Roles</TableCell>
-              <TableCell align="right">Surname</TableCell>
-              <TableCell align="right">Username</TableCell>
+              <TableCell align="right">Date</TableCell>
+              <TableCell align="right">Employessid</TableCell>
+              <TableCell align="right">Roomid</TableCell>
+              <TableCell align="right">Salarybill</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.props.list.map(row => (
               <TableRow key={row._id}>
                 <TableCell component="th" scope="row">
-                  <Link to={"/users/" + row._id} key={row._id}>
+                  <Link to={"/bills/" + row._id} key={row._id}>
                     {row._id}
                   </Link>
                 </TableCell>
-                <TableCell align="right">{ row.mail }</TableCell>
-                <TableCell align="right">{ row.name }</TableCell>
-                <TableCell align="right">{ row.password }</TableCell>
-                <TableCell align="right">{ row.roles }</TableCell>
-                <TableCell align="right">{ row.surname }</TableCell>
-                <TableCell align="right">{ row.username }</TableCell>
+                <TableCell align="right">{ row.date }</TableCell>
+                <TableCell align="right">{ row.employessid }</TableCell>
+                <TableCell align="right">{ row.roomid }</TableCell>
+                <TableCell align="right">{ row.salarybill }</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -175,7 +175,7 @@ class UserList extends Component {
         */}
 
         <div className="footer-card">
-          <Link to="/users/new">
+          <Link to="/bills/new">
             <Button variant="contained" color="primary">
               Add
             </Button>
@@ -188,24 +188,24 @@ class UserList extends Component {
 
 // Store actions
 const mapDispatchToProps = function(dispatch) {
-  return {
-    actions: bindActionCreators(UserActions, dispatch)
+  return { 
+    actionsBill: bindActionCreators(BillActions, dispatch),
   };
 };
 
 // Validate types
-UserList.propTypes = {
-  actions: PropTypes.object.isRequired
+BillList.propTypes = { 
+  actionsBill: PropTypes.object.isRequired,
 };
 
 // Get props from state
 function mapStateToProps(state, ownProps) {
   return {
-    list: state.UserListReducer.listUser
+    list: state.BillListReducer.listBill
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserList);
+)(BillList);

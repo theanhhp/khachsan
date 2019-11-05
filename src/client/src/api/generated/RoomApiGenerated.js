@@ -90,6 +90,38 @@ class RoomApiGenerated {
   }
 
   /**
+  * roomService.findBycoderoom
+  *   @description CRUD ACTION findBycoderoom
+  *   @param Objectid key Id della risorsa coderoom da cercare
+  *
+  */
+  static findBycoderoom(id) {
+    return axios.get(RoomApiGenerated.contextUrl + "/findBycoderoom/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
+  * roomService.findByroomid
+  *   @description CRUD ACTION findByroomid
+  *   @param Objectid key Id della risorsa roomid da cercare
+  *
+  */
+  static findByroomid(id) {
+    return axios.get(RoomApiGenerated.contextUrl + "/findByroomid/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
   * roomService.findByroomname
   *   @description CRUD ACTION findByroomname
   *   @param Objectid key Id of the resource roomname to search

@@ -92,6 +92,44 @@ let actionsFunction = {
   },
 
 
+  // Find by coderoom
+  findBycoderoom: function(key) {
+    return function(dispatch) {
+      return RoomApi
+        .findBycoderoom(key)
+        .then(item => {
+          dispatch(actionsFunction.findBycoderoomSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findBycoderoomSuccess: function(item) {
+    return { type: types.FINDBYCODEROOM_ROOM_SUCCESS, payload: item };
+  },
+
+
+  // Find by roomid
+  findByroomid: function(key) {
+    return function(dispatch) {
+      return RoomApi
+        .findByroomid(key)
+        .then(item => {
+          dispatch(actionsFunction.findByroomidSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByroomidSuccess: function(item) {
+    return { type: types.FINDBYROOMID_ROOM_SUCCESS, payload: item };
+  },
+
+
   // Find by roomname
   findByroomname: function(key) {
     return function(dispatch) {

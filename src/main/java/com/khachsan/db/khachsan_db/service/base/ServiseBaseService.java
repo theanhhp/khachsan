@@ -93,6 +93,18 @@ public class ServiseBaseService {
 	}
 
     	
+    //CRUD - FIND BY Idservise
+    	
+	public List<Servise> findByidservise(Long ididservise) {
+		
+		String sql = "select * from `Servise` WHERE `idservise` = :ididservise";
+		
+	    SqlParameterSource parameters = new MapSqlParameterSource()
+		.addValue("ididservise", ididservise);
+	    
+	    return jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(Servise.class));
+	}
+    	
     //CRUD - GET ONE
     	
 	public Servise get(Long id) {

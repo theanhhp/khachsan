@@ -78,6 +78,22 @@ public class RoomBaseController {
 	}
 	
 
+    //CRUD - FIND BY Coderoom
+    @Secured({ "ROLE_PRIVATE_USER" })
+	@RequestMapping(value = "/room/findBycoderoom/{key}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<Room> findBycoderoom(@PathVariable("key") Long idcoderoom) {
+		List<Room> list = roomService.findBycoderoom(idcoderoom);
+		return list;
+	}
+
+    //CRUD - FIND BY Roomid
+    @Secured({ "ROLE_PRIVATE_USER" })
+	@RequestMapping(value = "/room/findByroomid/{key}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<Room> findByroomid(@PathVariable("key") Long idroomid) {
+		List<Room> list = roomService.findByroomid(idroomid);
+		return list;
+	}
+
     //CRUD - FIND BY Roomname
     @Secured({ "ROLE_PRIVATE_USER" })
 	@RequestMapping(value = "/room/findByroomname/{key}", method = RequestMethod.GET, headers = "Accept=application/json")

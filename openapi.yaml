@@ -868,6 +868,40 @@ paths:
             schema:
               $ref: "#/components/schemas/employess"
     
+  /employess/findByemployessid/{key}:
+    get:
+      x-skaffolder-id: 5dc131f5f1abd745f99de511
+      x-skaffolder-name: findByemployessid
+      x-skaffolder-id-resource: 5dc0e3dd9ef7a1181f8e13d0
+      x-skaffolder-resource: employess
+      x-skaffolder-crudAction: findByemployessid
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByemployessid
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByemployessid/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByemployessid
+      tags:
+        - employess
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id della risorsa employessid da cercare
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/employess"
+    
   /employess/findByname/{key}:
     get:
       x-skaffolder-id: 5dc0e64c9ef7a1181f8e13d7
@@ -1074,6 +1108,74 @@ paths:
             schema:
               $ref: "#/components/schemas/room"
     
+  /room/findBycoderoom/{key}:
+    get:
+      x-skaffolder-id: 5dc1322ef1abd745f99de51d
+      x-skaffolder-name: findBycoderoom
+      x-skaffolder-id-resource: 5dc0e8119ef7a1181f8e13f2
+      x-skaffolder-resource: room
+      x-skaffolder-crudAction: findBycoderoom
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findBycoderoom
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findBycoderoom/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findBycoderoom
+      tags:
+        - room
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id della risorsa coderoom da cercare
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/room"
+    
+  /room/findByroomid/{key}:
+    get:
+      x-skaffolder-id: 5dc13219f1abd745f99de517
+      x-skaffolder-name: findByroomid
+      x-skaffolder-id-resource: 5dc0e8119ef7a1181f8e13f2
+      x-skaffolder-resource: room
+      x-skaffolder-crudAction: findByroomid
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByroomid
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByroomid/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByroomid
+      tags:
+        - room
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id della risorsa roomid da cercare
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/room"
+    
   /room/findByroomname/{key}:
     get:
       x-skaffolder-id: 5dc0ee509ef7a1181f8e145c
@@ -1269,6 +1371,40 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/servise"
+    
+  /servise/findByidservise/{key}:
+    get:
+      x-skaffolder-id: 5dc131f5f1abd745f99de513
+      x-skaffolder-name: findByidservise
+      x-skaffolder-id-resource: 5dc0eab89ef7a1181f8e1411
+      x-skaffolder-resource: servise
+      x-skaffolder-crudAction: findByidservise
+      x-skaffolder-crudType: 
+      x-skaffolder-description: CRUD ACTION findByidservise
+      x-skaffolder-returnDesc: 
+      x-skaffolder-returnType: 
+      x-skaffolder-url: /findByidservise/{key}
+      x-skaffolder-roles: []
+      summary: CRUD ACTION findByidservise
+      tags:
+        - servise
+      parameters:
+        - name: key
+          x-skaffolder-type: Objectid
+          in: path
+          description: Id della risorsa idservise da cercare
+          required: true
+          schema:
+            type: Objectid
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/servise"
     
     
 # JWT security
@@ -1543,6 +1679,86 @@ components:
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
         - 5dc0ea569ef7a1181f8e140c
+        - 5dc131f5f1abd745f99de515
+        - 5dc13219f1abd745f99de519
+        - 5dc13225f1abd745f99de51b
+        - 5dc1322ff1abd745f99de51f
+        - 5dc13262f1abd745f99de522
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc13262f1abd745f99de521
+      x-skaffolder-name: UserEdit
+      x-skaffolder-url: /users/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5dc0d95e9ef7a1181f8e132c
+      x-skaffolder-services: 
+        - 5dc0d95e9ef7a1181f8e1334
+        - 5dc0d95e9ef7a1181f8e1332
+        - 5dc0d95e9ef7a1181f8e132f
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc13262f1abd745f99de522
+      x-skaffolder-name: UserList
+      x-skaffolder-url: /users
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5dc0d95e9ef7a1181f8e132c
+      x-skaffolder-services: 
+        - 5dc0d95e9ef7a1181f8e1336
+        - 5dc0d95e9ef7a1181f8e1330
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+        - 5dc13262f1abd745f99de521
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc13219f1abd745f99de516
+      x-skaffolder-name: billEdit
+      x-skaffolder-url: /bills/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5dc0e8d59ef7a1181f8e13fb
+      x-skaffolder-services: 
+        - 5dc0ef119ef7a1181f8e1470
+        - 5dc131f5f1abd745f99de511
+        - 5dc13219f1abd745f99de517
+        - 5dc0ef199ef7a1181f8e1472
+        - 5dc0ef049ef7a1181f8e146c
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc13219f1abd745f99de519
+      x-skaffolder-name: billList
+      x-skaffolder-url: /bills
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5dc0e8d59ef7a1181f8e13fb
+      x-skaffolder-services: 
+        - 5dc0ef0b9ef7a1181f8e146e
+        - 5dc0eeba9ef7a1181f8e1469
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+        - 5dc13219f1abd745f99de516
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc1322ef1abd745f99de51c
+      x-skaffolder-name: costomerEdit
+      x-skaffolder-url: /costomers/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5dc0ea4b9ef7a1181f8e1409
+      x-skaffolder-services: 
+        - 5dc0efcd9ef7a1181f8e1481
+        - 5dc1322ef1abd745f99de51d
+        - 5dc0efe69ef7a1181f8e1486
+        - 5dc0efc79ef7a1181f8e147f
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc1322ff1abd745f99de51f
+      x-skaffolder-name: costomerList
+      x-skaffolder-url: /costomers
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5dc0ea4b9ef7a1181f8e1409
+      x-skaffolder-services: 
+        - 5dc0efd69ef7a1181f8e1483
+        - 5dc0efc19ef7a1181f8e147e
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+        - 5dc1322ef1abd745f99de51c
       x-skaffolder-roles: []
     - x-skaffolder-id: 5dc0ea569ef7a1181f8e140b
       x-skaffolder-name: employessEdit
@@ -1568,4 +1784,57 @@ components:
       x-skaffolder-nesteds: 
       x-skaffolder-links: 
         - 5dc0ea569ef7a1181f8e140b
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc131f5f1abd745f99de510
+      x-skaffolder-name: roomEdit
+      x-skaffolder-url: /rooms/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5dc0e8119ef7a1181f8e13f2
+      x-skaffolder-services: 
+        - 5dc0ee879ef7a1181f8e1463
+        - 5dc131f5f1abd745f99de511
+        - 5dc131f5f1abd745f99de513
+        - 5dc0ee7d9ef7a1181f8e1461
+        - 5dc0efc19ef7a1181f8e147e
+        - 5dc0eeba9ef7a1181f8e1469
+        - 5dc0ee759ef7a1181f8e145f
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc131f5f1abd745f99de515
+      x-skaffolder-name: roomList
+      x-skaffolder-url: /rooms
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5dc0e8119ef7a1181f8e13f2
+      x-skaffolder-services: 
+        - 5dc0ee8e9ef7a1181f8e1465
+        - 5dc0ee6b9ef7a1181f8e145e
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+        - 5dc131f5f1abd745f99de510
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc13225f1abd745f99de51a
+      x-skaffolder-name: serviseEdit
+      x-skaffolder-url: /servises/{id}
+      x-skaffolder-template: Edit_Crud
+      x-skaffolder-resource: 5dc0eab89ef7a1181f8e1411
+      x-skaffolder-services: 
+        - 5dc0f0079ef7a1181f8e148d
+        - 5dc0effc9ef7a1181f8e148a
+        - 5dc0ee6b9ef7a1181f8e145e
+        - 5dc0eff89ef7a1181f8e1488
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+      x-skaffolder-roles: []
+    - x-skaffolder-id: 5dc13225f1abd745f99de51b
+      x-skaffolder-name: serviseList
+      x-skaffolder-url: /servises
+      x-skaffolder-template: List_Crud
+      x-skaffolder-resource: 5dc0eab89ef7a1181f8e1411
+      x-skaffolder-services: 
+        - 5dc0f0129ef7a1181f8e148f
+        - 5dc0f0039ef7a1181f8e148c
+      x-skaffolder-nesteds: 
+      x-skaffolder-links: 
+        - 5dc13225f1abd745f99de51a
       x-skaffolder-roles: []

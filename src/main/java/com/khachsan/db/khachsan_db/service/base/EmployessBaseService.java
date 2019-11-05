@@ -98,6 +98,18 @@ public class EmployessBaseService {
 	}
 
     	
+    //CRUD - FIND BY Employessid
+    	
+	public List<Employess> findByemployessid(Long idemployessid) {
+		
+		String sql = "select * from `Employess` WHERE `employessid` = :idemployessid";
+		
+	    SqlParameterSource parameters = new MapSqlParameterSource()
+		.addValue("idemployessid", idemployessid);
+	    
+	    return jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(Employess.class));
+	}
+    	
     //CRUD - FIND BY Name
     	
 	public List<Employess> findByname(Long idname) {

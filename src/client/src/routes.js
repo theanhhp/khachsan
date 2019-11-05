@@ -40,8 +40,18 @@ import Paper from "@material-ui/core/Paper";
 
 /* START MY VIEWS IMPORT */
 
+import UserEdit from "./pages/UserEdit";
+import UserList from "./pages/UserList";
+import BillEdit from "./pages/BillEdit";
+import BillList from "./pages/BillList";
+import CostomerEdit from "./pages/CostomerEdit";
+import CostomerList from "./pages/CostomerList";
 import EmployessEdit from "./pages/EmployessEdit";
 import EmployessList from "./pages/EmployessList";
+import RoomEdit from "./pages/RoomEdit";
+import RoomList from "./pages/RoomList";
+import ServiseEdit from "./pages/ServiseEdit";
+import ServiseList from "./pages/ServiseList";
 
 /* END MY VIEWS IMPORT */
 
@@ -71,8 +81,18 @@ class Routes extends Component {
 
               {/* START MY VIEWS */}
 
+              <PrivateRoute exact path="/users/:id" component={ UserEdit }  />
+              <PrivateRoute exact path="/users" component={ UserList }  />
+              <PrivateRoute exact path="/bills/:id" component={ BillEdit }  />
+              <PrivateRoute exact path="/bills" component={ BillList }  />
+              <PrivateRoute exact path="/costomers/:id" component={ CostomerEdit }  />
+              <PrivateRoute exact path="/costomers" component={ CostomerList }  />
               <PrivateRoute exact path="/employesses/:id" component={ EmployessEdit }  />
               <PrivateRoute exact path="/employesses" component={ EmployessList }  />
+              <PrivateRoute exact path="/rooms/:id" component={ RoomEdit }  />
+              <PrivateRoute exact path="/rooms" component={ RoomList }  />
+              <PrivateRoute exact path="/servises/:id" component={ ServiseEdit }  />
+              <PrivateRoute exact path="/servises" component={ ServiseList }  />
 
              {/* END MY VIEWS */}
 

@@ -52,14 +52,14 @@ import Delete from "@material-ui/icons/Delete";
 
 /** APIs
 
-* UserService.create
+* actionsUser.create
 *	@description CRUD ACTION create
 *
-* UserService.get
+* actionsUser.get
 *	@description CRUD ACTION get
-*	@param ObjectId id - Id 
+*	@param ObjectId id - Id resource
 *
-* UserService.update
+* actionsUser.update
 *	@description CRUD ACTION update
 *	@param ObjectId id - Id
 *

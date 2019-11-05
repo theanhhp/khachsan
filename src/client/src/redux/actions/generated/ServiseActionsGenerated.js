@@ -92,6 +92,25 @@ let actionsFunction = {
   },
 
 
+  // Find by idservise
+  findByidservise: function(key) {
+    return function(dispatch) {
+      return ServiseApi
+        .findByidservise(key)
+        .then(item => {
+          dispatch(actionsFunction.findByidserviseSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByidserviseSuccess: function(item) {
+    return { type: types.FINDBYIDSERVISE_SERVISE_SUCCESS, payload: item };
+  },
+
+
   // Get servise
   loadServise: function(id) {
     return function(dispatch) {

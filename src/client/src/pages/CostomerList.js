@@ -38,7 +38,6 @@ import DialogDelete from "../components/DialogDelete";
 import PropTypes from "prop-types";
 import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
-import UserActions from "../redux/actions/UserActions";
 
 // Material UI
 import Button from "@material-ui/core/Button";
@@ -51,19 +50,29 @@ import Button from "@material-ui/core/Button";
 // Table
 import EnhancedTable from "../components/EnhancedTable";
 
+// Custom Actions
+
+
+// START IMPORT ACTIONS
+import CostomerActions from "../redux/actions/CostomerActions";
+
+// END IMPORT ACTIONS
+
 /** APIs
 
-* actionsUser.delete
+* actionsCostomer.delete
 *	@description CRUD ACTION delete
-*	@param ObjectId id - Id
+*	@param ObjectId id - Id costomer
 *
-* actionsUser.list
+* actionsCostomer.list
 *	@description CRUD ACTION list
+*	@returns ARRAY OF costomer
 *
 
 **/
 
-class UserList extends Component {
+
+class CostomerList extends Component {
   // Init component
   constructor(props) {
     super(props);
@@ -74,7 +83,7 @@ class UserList extends Component {
 
   // Load data on start
   componentWillMount() {
-    this.props.actions.loadUserList();
+    this.props.actionsCostomer.loadCostomerList();
   }
 
   // Delete data
@@ -87,46 +96,56 @@ class UserList extends Component {
   }
 
   confirmDialogDelete(id) {
-    this.props.actions.deleteUser(this.state.idDelete).then(data => {
-      this.props.actions.loadUserList();
+    this.props.actionsCostomer.deleteCostomer(this.state.idDelete).then(data => {
+      this.props.actionsCostomer.loadCostomerList();
       this.setState({ openDialogDelete: false, idDelete: null });
     });
   }
 
   // Show content
   render() {
-    const columns = [
+    const columns = [ 
       {
-        id: "username",
+        id: "age",
+        type: "number",
+        label: "Age"
+      }, 
+      {
+        id: "card",
+        type: "number",
+        label: "Card"
+      }, 
+      {
+        id: "coderoom",
+        type: "integer",
+        label: "Coderoom"
+      }, 
+      {
+        id: "gender",
         type: "string",
-        label: "Username"
+        label: "Gender"
+      }, 
+      {
+        id: "namcostomer",
+        type: "string",
+        label: "Namcostomer"
+      }, 
+      {
+        id: "nationality",
+        type: "string",
+        label: "Nationality"
+      }, 
+      {
+        id: "phonenumber",
+        type: "number",
+        label: "Phonenumber"
       },
-      {
-        id: "name",
-        type: "string",
-        label: "Name"
-      },
-      {
-        id: "surname",
-        type: "string",
-        label: "Surname"
-      },
-      {
-        id: "mail",
-        type: "string",
-        label: "Mail"
-      },
-      {
-        id: "roles",
-        type: "string",
-        label: "Roles"
-      }
     ];
-    const link = "/users/";
+    const link = "/costomers/";
 
     return (
       <div>
-        <h1>User List</h1>
+        <h1>Costomer List</h1>
 
         <EnhancedTable
           data={this.props.list}
@@ -146,28 +165,30 @@ class UserList extends Component {
           <TableHead>
             <TableRow>
               <TableCell>ID</TableCell>
-              <TableCell align="right">Mail</TableCell>
-              <TableCell align="right">Name</TableCell>
-              <TableCell align="right">Password</TableCell>
-              <TableCell align="right">Roles</TableCell>
-              <TableCell align="right">Surname</TableCell>
-              <TableCell align="right">Username</TableCell>
+              <TableCell align="right">Age</TableCell>
+              <TableCell align="right">Card</TableCell>
+              <TableCell align="right">Coderoom</TableCell>
+              <TableCell align="right">Gender</TableCell>
+              <TableCell align="right">Namcostomer</TableCell>
+              <TableCell align="right">Nationality</TableCell>
+              <TableCell align="right">Phonenumber</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {this.props.list.map(row => (
               <TableRow key={row._id}>
                 <TableCell component="th" scope="row">
-                  <Link to={"/users/" + row._id} key={row._id}>
+                  <Link to={"/costomers/" + row._id} key={row._id}>
                     {row._id}
                   </Link>
                 </TableCell>
-                <TableCell align="right">{ row.mail }</TableCell>
-                <TableCell align="right">{ row.name }</TableCell>
-                <TableCell align="right">{ row.password }</TableCell>
-                <TableCell align="right">{ row.roles }</TableCell>
-                <TableCell align="right">{ row.surname }</TableCell>
-                <TableCell align="right">{ row.username }</TableCell>
+                <TableCell align="right">{ row.age }</TableCell>
+                <TableCell align="right">{ row.card }</TableCell>
+                <TableCell align="right">{ row.coderoom }</TableCell>
+                <TableCell align="right">{ row.gender }</TableCell>
+                <TableCell align="right">{ row.namcostomer }</TableCell>
+                <TableCell align="right">{ row.nationality }</TableCell>
+                <TableCell align="right">{ row.phonenumber }</TableCell>
               </TableRow>
             ))}
           </TableBody>
@@ -175,7 +196,7 @@ class UserList extends Component {
         */}
 
         <div className="footer-card">
-          <Link to="/users/new">
+          <Link to="/costomers/new">
             <Button variant="contained" color="primary">
               Add
             </Button>
@@ -188,24 +209,24 @@ class UserList extends Component {
 
 // Store actions
 const mapDispatchToProps = function(dispatch) {
-  return {
-    actions: bindActionCreators(UserActions, dispatch)
+  return { 
+    actionsCostomer: bindActionCreators(CostomerActions, dispatch),
   };
 };
 
 // Validate types
-UserList.propTypes = {
-  actions: PropTypes.object.isRequired
+CostomerList.propTypes = { 
+  actionsCostomer: PropTypes.object.isRequired,
 };
 
 // Get props from state
 function mapStateToProps(state, ownProps) {
   return {
-    list: state.UserListReducer.listUser
+    list: state.CostomerListReducer.listCostomer
   };
 }
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(UserList);
+)(CostomerList);

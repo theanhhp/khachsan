@@ -123,12 +123,52 @@ class Navbar extends React.Component {
         <List>
           {/* START LINK MENU */}
             
+           <Link to="/users">
+            <ListItem button key="User">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="User" />
+            </ListItem>
+          </Link>{" "}            
+           <Link to="/bills">
+            <ListItem button key="bill">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="bill" />
+            </ListItem>
+          </Link>{" "}            
+           <Link to="/costomers">
+            <ListItem button key="costomer">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="costomer" />
+            </ListItem>
+          </Link>{" "}            
            <Link to="/employesses">
             <ListItem button key="employess">
               <ListItemIcon>
                 <ArrowForwardIos />
               </ListItemIcon>
               <ListItemText className="menu-text" primary="employess" />
+            </ListItem>
+          </Link>{" "}            
+           <Link to="/rooms">
+            <ListItem button key="room">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="room" />
+            </ListItem>
+          </Link>{" "}            
+           <Link to="/servises">
+            <ListItem button key="servise">
+              <ListItemIcon>
+                <ArrowForwardIos />
+              </ListItemIcon>
+              <ListItemText className="menu-text" primary="servise" />
             </ListItem>
           </Link>{" "} {/* END LINK MENU */}
         </List>

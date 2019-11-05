@@ -76,6 +76,14 @@ public class EmployessBaseController {
 	}
 	
 
+    //CRUD - FIND BY Employessid
+    @Secured({ "ROLE_PRIVATE_USER" })
+	@RequestMapping(value = "/employess/findByemployessid/{key}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<Employess> findByemployessid(@PathVariable("key") Long idemployessid) {
+		List<Employess> list = employessService.findByemployessid(idemployessid);
+		return list;
+	}
+
     //CRUD - FIND BY Name
     @Secured({ "ROLE_PRIVATE_USER" })
 	@RequestMapping(value = "/employess/findByname/{key}", method = RequestMethod.GET, headers = "Accept=application/json")

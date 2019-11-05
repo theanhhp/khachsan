@@ -74,6 +74,14 @@ public class ServiseBaseController {
 		serviseService.delete(id);
 	}
 	
+
+    //CRUD - FIND BY Idservise
+    @Secured({ "ROLE_PRIVATE_USER" })
+	@RequestMapping(value = "/servise/findByidservise/{key}", method = RequestMethod.GET, headers = "Accept=application/json")
+	public List<Servise> findByidservise(@PathVariable("key") Long ididservise) {
+		List<Servise> list = serviseService.findByidservise(ididservise);
+		return list;
+	}
 	
     //CRUD - GET ONE
     @Secured({ "ROLE_PRIVATE_USER" })

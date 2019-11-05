@@ -33,8 +33,18 @@ import { combineReducers } from "redux";
 
 // START IMPORT REDUCERS
 import HomeReducer from "./HomeReducer";
+import UserEditReducer from "./UserEditReducer";
+import UserListReducer from "./UserListReducer";
+import BillEditReducer from "./BillEditReducer";
+import BillListReducer from "./BillListReducer";
+import CostomerEditReducer from "./CostomerEditReducer";
+import CostomerListReducer from "./CostomerListReducer";
 import EmployessEditReducer from "./EmployessEditReducer";
 import EmployessListReducer from "./EmployessListReducer";
+import RoomEditReducer from "./RoomEditReducer";
+import RoomListReducer from "./RoomListReducer";
+import ServiseEditReducer from "./ServiseEditReducer";
+import ServiseListReducer from "./ServiseListReducer";
 
 // END IMPORT REDUCERS
 
@@ -55,8 +65,18 @@ const rootReducer = combineReducers({
 
   // START COMBINE REDUCERS
 	HomeReducer,
+	UserEditReducer,
+	UserListReducer,
+	BillEditReducer,
+	BillListReducer,
+	CostomerEditReducer,
+	CostomerListReducer,
 	EmployessEditReducer,
 	EmployessListReducer,
+	RoomEditReducer,
+	RoomListReducer,
+	ServiseEditReducer,
+	ServiseListReducer,
  // END COMBINE REDUCERS
 
 });

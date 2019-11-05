@@ -90,6 +90,22 @@ class ServiseApiGenerated {
   }
 
   /**
+  * serviseService.findByidservise
+  *   @description CRUD ACTION findByidservise
+  *   @param Objectid key Id della risorsa idservise da cercare
+  *
+  */
+  static findByidservise(id) {
+    return axios.get(ServiseApiGenerated.contextUrl + "/findByidservise/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
   * serviseService.get
   *   @description CRUD ACTION get
   *   @param ObjectId id Id servise
