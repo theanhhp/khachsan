@@ -73,10 +73,10 @@ public class RoomBaseService {
 	public Room insert(Room obj) {
 		Long id = jdbcTemplate.queryForObject("select max(_id) from `room`", new MapSqlParameterSource(), Long.class);
 		obj.set_id(id == null ? 1 : id + 1);
-		String sql = "INSERT INTO `room` (`_id`, `employessid`,`idservise`,`note`,`roomname`,`roomstauts`,`roomtype`,`salary`,`coderoom`,`roomid`) VALUES (:id,:employessid,:idservise,:note,:roomname,:roomstauts,:roomtype,:salary, :coderoom , :roomid )";
+		String sql = "INSERT INTO `room` (`_id`, `emid`,`idservise`,`note`,`roomname`,`roomstauts`,`roomtype`,`salary`,`coderoom`,`roomid`) VALUES (:id,:emid,:idservise,:note,:roomname,:roomstauts,:roomtype,:salary, :coderoom , :roomid )";
 			SqlParameterSource parameters = new MapSqlParameterSource()
 		    .addValue("id", obj.get_id())
-			.addValue("employessid", obj.getEmployessid())
+			.addValue("emid", obj.getEmid())
 			.addValue("idservise", obj.getIdservise())
 			.addValue("note", obj.getNote())
 			.addValue("roomname", obj.getRoomname())
@@ -170,10 +170,10 @@ public class RoomBaseService {
     	
 	public Room update(Room obj, Long id) {
 
-		String sql = "UPDATE `room` SET `employessid` = :employessid,`idservise` = :idservise,`note` = :note,`roomname` = :roomname,`roomstauts` = :roomstauts,`roomtype` = :roomtype,`salary` = :salary , `coderoom` = :coderoom , `roomid` = :roomid  WHERE `_id`=:id";
+		String sql = "UPDATE `room` SET `emid` = :emid,`idservise` = :idservise,`note` = :note,`roomname` = :roomname,`roomstauts` = :roomstauts,`roomtype` = :roomtype,`salary` = :salary , `coderoom` = :coderoom , `roomid` = :roomid  WHERE `_id`=:id";
 		SqlParameterSource parameters = new MapSqlParameterSource()
 			.addValue("id", id)
-			.addValue("employessid", obj.getEmployessid())
+			.addValue("emid", obj.getEmid())
 			.addValue("idservise", obj.getIdservise())
 			.addValue("note", obj.getNote())
 			.addValue("roomname", obj.getRoomname())

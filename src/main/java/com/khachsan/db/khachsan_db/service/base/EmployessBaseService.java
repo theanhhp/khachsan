@@ -71,7 +71,7 @@ public class EmployessBaseService {
 	public Employess insert(Employess obj) {
 		Long id = jdbcTemplate.queryForObject("select max(_id) from `employess`", new MapSqlParameterSource(), Long.class);
 		obj.set_id(id == null ? 1 : id + 1);
-		String sql = "INSERT INTO `employess` (`_id`, `disc`,`gender`,`name`,`position`,`salary`,`employessid`,`employessid`) VALUES (:id,:disc,:gender,:name,:position,:salary, :employessid , :employessid )";
+		String sql = "INSERT INTO `employess` (`_id`, `disc`,`gender`,`name`,`position`,`salary`,`emid`,`employessid`) VALUES (:id,:disc,:gender,:name,:position,:salary, :emid , :employessid )";
 			SqlParameterSource parameters = new MapSqlParameterSource()
 		    .addValue("id", obj.get_id())
 			.addValue("disc", obj.getDisc())
@@ -79,7 +79,7 @@ public class EmployessBaseService {
 			.addValue("name", obj.getName())
 			.addValue("position", obj.getPosition())
 			.addValue("salary", obj.getSalary())
-			.addValue("employessid", obj.getEmployessid())
+			.addValue("emid", obj.getEmid())
 			.addValue("employessid", obj.getEmployessid());
 		
 		jdbcTemplate.update(sql, parameters);
@@ -97,6 +97,18 @@ public class EmployessBaseService {
 		jdbcTemplate.update(sql, parameters);
 	}
 
+    	
+    //CRUD - FIND BY Emid
+    	
+	public List<Employess> findByemid(Long idemid) {
+		
+		String sql = "select * from `Employess` WHERE `emid` = :idemid";
+		
+	    SqlParameterSource parameters = new MapSqlParameterSource()
+		.addValue("idemid", idemid);
+	    
+	    return jdbcTemplate.query(sql, parameters, new BeanPropertyRowMapper(Employess.class));
+	}
     	
     //CRUD - FIND BY Employessid
     	
@@ -154,7 +166,7 @@ public class EmployessBaseService {
     	
 	public Employess update(Employess obj, Long id) {
 
-		String sql = "UPDATE `employess` SET `disc` = :disc,`gender` = :gender,`name` = :name,`position` = :position,`salary` = :salary , `employessid` = :employessid , `employessid` = :employessid  WHERE `_id`=:id";
+		String sql = "UPDATE `employess` SET `disc` = :disc,`gender` = :gender,`name` = :name,`position` = :position,`salary` = :salary , `emid` = :emid , `employessid` = :employessid  WHERE `_id`=:id";
 		SqlParameterSource parameters = new MapSqlParameterSource()
 			.addValue("id", id)
 			.addValue("disc", obj.getDisc())
@@ -162,7 +174,7 @@ public class EmployessBaseService {
 			.addValue("name", obj.getName())
 			.addValue("position", obj.getPosition())
 			.addValue("salary", obj.getSalary())
-			.addValue("employessid", obj.getEmployessid())
+			.addValue("emid", obj.getEmid())
 			.addValue("employessid", obj.getEmployessid());
 		jdbcTemplate.update(sql, parameters);
 	    return obj;

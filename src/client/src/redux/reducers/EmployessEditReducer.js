@@ -49,8 +49,10 @@ export default function employessEditReducer(state = initialState, action) {
       return { ...state, employess: action.payload };
     case types.GET_EMPLOYESS_SUCCESS:
       return { ...state, employess: action.payload };
-    case types.LIST_USER_SUCCESS:
-      return { ...state, listUser: action.payload };
+    case types.LIST_BILL_SUCCESS:
+      return { ...state, listBill: action.payload };
+    case types.LIST_ROOM_SUCCESS:
+      return { ...state, listRoom: action.payload };
     case types.UPDATE_EMPLOYESS_SUCCESS:
       return { ...state, employess: action.payload };
      // END REDUCERS

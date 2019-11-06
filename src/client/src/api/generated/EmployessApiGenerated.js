@@ -90,6 +90,22 @@ class EmployessApiGenerated {
   }
 
   /**
+  * employessService.findByemid
+  *   @description CRUD ACTION findByemid
+  *   @param Objectid key Id della risorsa emid da cercare
+  *
+  */
+  static findByemid(id) {
+    return axios.get(EmployessApiGenerated.contextUrl + "/findByemid/" + id )
+      .then(response => {
+        return response.data;
+      })
+      .catch(error => {
+        throw error;
+      });
+  }
+
+  /**
   * employessService.findByemployessid
   *   @description CRUD ACTION findByemployessid
   *   @param Objectid key Id della risorsa employessid da cercare

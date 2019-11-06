@@ -65,9 +65,9 @@ import BillActions from "../redux/actions/BillActions";
 *	@description CRUD ACTION create
 *	@param room obj - Object to insert
 *
-* actionsEmployess.findByemployessid
-*	@description CRUD ACTION findByemployessid
-*	@param Objectid key - Id della risorsa employessid da cercare
+* actionsEmployess.findByemid
+*	@description CRUD ACTION findByemid
+*	@param Objectid key - Id della risorsa emid da cercare
 *
 * actionsServise.findByidservise
 *	@description CRUD ACTION findByidservise

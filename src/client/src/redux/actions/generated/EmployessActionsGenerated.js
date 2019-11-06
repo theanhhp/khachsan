@@ -92,6 +92,25 @@ let actionsFunction = {
   },
 
 
+  // Find by emid
+  findByemid: function(key) {
+    return function(dispatch) {
+      return EmployessApi
+        .findByemid(key)
+        .then(item => {
+          dispatch(actionsFunction.findByemidSuccess(item));
+        })
+        .catch(error => {
+          throw error;
+        });
+    };
+  },
+
+  findByemidSuccess: function(item) {
+    return { type: types.FINDBYEMID_EMPLOYESS_SUCCESS, payload: item };
+  },
+
+
   // Find by employessid
   findByemployessid: function(key) {
     return function(dispatch) {

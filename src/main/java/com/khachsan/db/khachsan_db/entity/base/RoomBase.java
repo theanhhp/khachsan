@@ -71,7 +71,7 @@ public class RoomBase implements RowMapper<Room>{
 	private Long _id;
 	
 	// Attributes
-    private Integer employessid;
+    private Integer emid;
     private Integer idservise;
     private String note;
     private String roomname;
@@ -93,7 +93,7 @@ public class RoomBase implements RowMapper<Room>{
 		Room obj = new Room();
 		try {
 			obj.set_id(rs.getLong("id"));
-			obj.setEmployessid(rs.getInt("employessid"));
+			obj.setEmid(rs.getInt("emid"));
 			obj.setIdservise(rs.getInt("idservise"));
 			obj.setNote(rs.getString("note"));
 			obj.setRoomname(rs.getString("roomname"));
@@ -124,13 +124,13 @@ public class RoomBase implements RowMapper<Room>{
 		this._id = _id;
 	}
 	
-	public Integer getEmployessid() {
-		return employessid;
+	public Integer getEmid() {
+		return emid;
 	}
 
 
-	public void setEmployessid(Integer employessid) {
-		this.employessid = employessid;
+	public void setEmid(Integer emid) {
+		this.emid = emid;
 	}
 	public Integer getIdservise() {
 		return idservise;

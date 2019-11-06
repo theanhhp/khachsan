@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `employess` (
 --
 
 CREATE TABLE IF NOT EXISTS `room` (
-	`employessid` int ,
+	`emid` int ,
 	`idservise` int ,
 	`note` varchar(130) ,
 	`roomname` varchar(130) ,
@@ -127,11 +127,11 @@ CREATE TABLE IF NOT EXISTS `servise` (
 
 
 
+-- relation 1:m emid employess - room
+ALTER TABLE `employess` ADD COLUMN `emid` int(11)  REFERENCES room(_id);
+
 -- relation 1:m employessid employess - bill
 ALTER TABLE `employess` ADD COLUMN `employessid` int(11)  REFERENCES bill(_id);
-
--- relation 1:m employessid employess - room
-ALTER TABLE `employess` ADD COLUMN `employessid` int(11)  REFERENCES room(_id);
 
 -- relation 1:m coderoom room - costomer
 ALTER TABLE `room` ADD COLUMN `coderoom` int(11)  REFERENCES costomer(_id);

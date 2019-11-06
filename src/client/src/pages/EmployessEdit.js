@@ -52,6 +52,8 @@ import FormControl from "@material-ui/core/FormControl";
 
 // START IMPORT ACTIONS
 import EmployessActions from "../redux/actions/EmployessActions";
+import BillActions from "../redux/actions/BillActions";
+import RoomActions from "../redux/actions/RoomActions";
 
 // END IMPORT ACTIONS
 
@@ -66,8 +68,13 @@ import EmployessActions from "../redux/actions/EmployessActions";
 *	@param ObjectId id - Id employess
 *	@returns employess
 *
-* actionsUser.list
+* actionsBill.list
 *	@description CRUD ACTION list
+*	@returns ARRAY OF bill
+*
+* actionsRoom.list
+*	@description CRUD ACTION list
+*	@returns ARRAY OF room
 *
 * actionsEmployess.update
 *	@description CRUD ACTION update

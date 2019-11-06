@@ -47,7 +47,7 @@ export default function roomEditReducer(state = initialState, action) {
     // START REDUCERS
     case types.CREATE_ROOM_SUCCESS:
       return { ...state, room: action.payload };
-    case types.FINDBYEMPLOYESSID_EMPLOYESS_SUCCESS:
+    case types.FINDBYEMID_EMPLOYESS_SUCCESS:
       return { ...state, listEmployess: action.payload };
     case types.FINDBYIDSERVISE_SERVISE_SUCCESS:
       return { ...state, listServise: action.payload };

@@ -77,8 +77,8 @@ public class EmployessBase implements RowMapper<Employess>{
     private String position;
     private BigDecimal salary;
 	
-	// Relations employessid
-	private String employessid;
+	// Relations emid
+	private String emid;
 	
 	// Relations employessid
 	private String employessid;
@@ -98,8 +98,8 @@ public class EmployessBase implements RowMapper<Employess>{
 			obj.setSalary(rs.getDouble("salary"));
 			
         	
-        	// Relations 1:m employessid
-			obj.setEmployessid(rs.getString("employessid"));
+        	// Relations 1:m emid
+			obj.setEmid(rs.getString("emid"));
         	
         	// Relations 1:m employessid
 			obj.setEmployessid(rs.getString("employessid"));
@@ -162,13 +162,13 @@ public class EmployessBase implements RowMapper<Employess>{
 	}
 	
     
-    // Relations 1:m employessid
-	public String getEmployessid() {
-		return employessid;
+    // Relations 1:m emid
+	public String getEmid() {
+		return emid;
 	}
 
-	public void setEmployessid(String employessid) {
-		this.employessid = employessid;
+	public void setEmid(String emid) {
+		this.emid = emid;
 	}
     
     // Relations 1:m employessid
